@@ -15,6 +15,8 @@ const Navbar = () => {
                     className='logo-link'>
                     <Link to='/'>D-Crypto-Coins</Link>
                 </Typography.Title>
+                <Button className="menu-control-container"><MenuOutlined /></Button>
+
             </div>
             <Menu
                 theme='dark'

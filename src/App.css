@@ -19,7 +19,7 @@ a:hover {
 
 .app-container {
   display: flex;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .navbar.menu {
@@ -29,9 +29,36 @@ a:hover {
 
 .main-content.body-section {
   flex: 0.8;
-  margin: 10px;
   width: 100%;
+  padding-left: 10px;
 }
+@media screen and (max-width: 1300px) {
+  .main-content.body-section {
+    margin-left: -12px;
+  }
+}
+
+@media screen and (max-width: 1072px) {
+  .main-content.body-section {
+    margin-left: 15px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .main-content.body-section {
+    margin-left: 32px;
+  }
+}
+@media screen and (max-width: 920px) {
+  .main-content.body-section {
+    margin-left: 45px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .main-content.body-section {
+    margin-left: 65px;
+  }
+}
+
 .routes {
   padding: 20px;
 }
@@ -59,6 +86,56 @@ a:hover {
 .logo-link a {
   color: white;
 }
+.menu-control-container {
+  display: none !important;
+  position: absolute !important;
+  right: 10px !important;
+  top: 25px !important;
+  font-size: 1.2rem !important;
+  background-color: var(--bgSecondary) !important;
+  border: none !important;
+}
+
+@media screen and (max-width: 800px) {
+  .app-container {
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  .navbar.menu {
+    flex: 1;
+  }
+
+  .main-content.body-section {
+    flex: 1;
+    margin-top: 90px;
+    margin-left: 0px;
+    margin-right: 10px;
+  }
+
+  .navbar-container {
+    height: 8vh;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background-color: var(--bgSecondary);
+  }
+
+  .menu-control-container {
+    display: block !important;
+  }
+
+  .ant-menu {
+    position: absolute;
+    right: 0px;
+  }
+  .home-title {
+    font-size: 1.4rem !important;
+  }
+  .show-more {
+    font-size: 1.3rem !important;
+  }
+}
 
 .footer-section {
   background-color: #001529;
@@ -67,4 +144,5 @@ a:hover {
   flex-direction: column;
   padding: 20px;
   align-items: center;
+  width: 100%;
 }
