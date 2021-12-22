@@ -1,10 +1,29 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const apiHeaders = {
-    'x-rapidapi-host': process.env.RAPID_API_HOST,
-    'x-rapidapi-key': process.env.RAPID_API_KEY
+    'x-rapidapi-host': process.env.REACT_APP_RAPID_API_HOST,
+    'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY
 }
 
-const baseUrl = RAPID_API_URL;
+const baseUrl = process.env.REACT_APP_RAPID_API_URL;
 
-export const cryptoApi = createApi()
+// Utility fn as callback - to pass headers too
+const createRequest = (url) => ({
+    url,
+    headers: apiHeaders
+})
+
+export const cryptoCoinsApi = createApi({
+    reducerPath: 'cryptoCoinsApi', // A name to specify the reducer path
+    baseQuery: fetchBaseQuery({ baseUrl }),
+    endpoints: (builder) => ({
+        getCryptoCoins: builder.query({
+            query: () => createRequest('/coins'),
+        })
+    })
+});
+
+// custom hook to call by redux tookit automatically in required pages / components 
+export const {
+    useGetCryptoCoinsQuery, // Add ( prefix 'use' and suffix 'Query') to the endpoints object query above
+} = cryptoCoinsApi;

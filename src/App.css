@@ -71,7 +71,7 @@ a:hover {
 }
 
 .logo {
-  background-color: #001529;
+  background-color: #1f6bb6;
   display: flex;
   padding: 20px;
   align-items: center;
@@ -84,7 +84,7 @@ a:hover {
   width: 35px;
 } */
 .logo-link a {
-  color: white;
+  color: white !important;
 }
 .menu-control-container {
   display: none !important;
@@ -134,6 +134,18 @@ a:hover {
   }
   .show-more {
     font-size: 1.3rem !important;
+  }
+}
+/* home page */
+.home-heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+@media screen and (max-width: 500px) {
+  .home-heading {
+    margin-top: 20px;
   }
 }
 

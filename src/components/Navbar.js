@@ -1,10 +1,24 @@
 import { Avatar, Button, Menu, Typography } from 'antd';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { BulbOutlined, FundOutlined, HomeOutlined, MenuOutlined, MoneyCollectOutlined } from '@ant-design/icons';
 
 
 const Navbar = () => {
+    let location = useLocation();
+    const [current, setCurrent] = useState(location.pathname);
+
+    useEffect(() => {
+        if (location) {
+            if (current !== location.pathname) {
+                setCurrent(location.pathname);
+            }
+        }
+    }, [location, current]);
+
+    const handleMenuItemClick = (e) => {
+        setCurrent(e.key);
+    }
 
     return (
         <div className='navbar-container'>
@@ -20,7 +34,9 @@ const Navbar = () => {
             </div>
             <Menu
                 theme='dark'
-                defaultSelectedKeys={[window.location.pathname]}>
+                onClick={handleMenuItemClick}
+                defaultSelectedKeys={['/']}
+                selectedKeys={[current]}>
                 <Menu.Item icon={<HomeOutlined />} key='/'>
                     <Link to='/'>Home</Link>
                 </Menu.Item>
