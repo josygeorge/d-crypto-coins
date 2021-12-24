@@ -10,7 +10,7 @@ const { Title } = Typography;
 const HomePage = () => {
 
     // call redux toolkit query hook
-    const { data, isFetching } = useGetCryptoCoinsQuery();
+    const { data, isFetching } = useGetCryptoCoinsQuery(6);
     const worldWideStats = data?.data?.stats;
     console.log(worldWideStats);
 
@@ -37,7 +37,7 @@ const HomePage = () => {
                 </Col>
             </Row>
             <div className='home-heading-container'>
-                <Title level={4} className='home-title'>Top 10 Crypto Coins in the world</Title>
+                <Title level={4} className='home-title'>Top 6 Crypto Coins in the world</Title>
                 <Title level={5} className='show-more'>
                     <Link to='/cryptocoins'>Show More</Link>
                 </Title>

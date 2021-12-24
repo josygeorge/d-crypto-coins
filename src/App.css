@@ -31,6 +31,9 @@ a:hover {
   flex: 0.8;
   width: 100%;
   padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh !important;
 }
 @media screen and (max-width: 1300px) {
   .main-content.body-section {
@@ -148,6 +151,29 @@ a:hover {
     margin-top: 20px;
   }
 }
+/* Crypto Coins Page */
+.crypto-coins-card-container {
+  min-height: 65vh !important;
+  margin-top: 50px;
+}
+.crypto-coins-card {
+  min-width: 300px;
+}
+.crypto-coins-card .crypto-coins-image {
+  width: 35px;
+}
+.search-crypto-coins {
+  width: 250px;
+  z-index: 9999;
+  top: 0;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 20px auto 10px auto;
+}
+.search-crypto-coins .ant-input-affix-wrapper {
+  border: 1px solid rgb(179, 163, 72);
+}
 
 .footer-section {
   background-color: #001529;
@@ -157,4 +183,5 @@ a:hover {
   padding: 20px;
   align-items: center;
   width: 100%;
+  margin-top: auto;
 }
