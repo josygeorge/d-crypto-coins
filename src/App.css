@@ -1,5 +1,6 @@
 :root {
   --text-primary: #000;
+  --text-secondary: #1f6bb6;
   --bgPrimary: #fff;
   --bgSecondary: #f9f9f9;
   --orange: #dac04a;
@@ -74,7 +75,7 @@ a:hover {
 }
 
 .logo {
-  background-color: #1f6bb6;
+  background-color: var(--text-secondary);
   display: flex;
   padding: 20px;
   align-items: center;
@@ -173,6 +174,41 @@ a:hover {
 }
 .search-crypto-coins .ant-input-affix-wrapper {
   border: 1px solid rgb(179, 163, 72);
+}
+
+/* coin details */
+.crypto-coin-detail-container {
+  margin: 30px;
+}
+
+.crypto-coin-heading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  gap: 10px;
+}
+
+.crypto-coin-heading-container .crypto-coin-name {
+  font-weight: 900;
+  color: var(--text-secondary);
+}
+
+.crypto-coin-heading-container p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #488ed4;
+}
+.time-period {
+  width: 200px !important;
+  margin-top: 20px !important;
+  border: var(--orange);
+}
+.time-period.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-color: var(--orange);
 }
 
 .footer-section {

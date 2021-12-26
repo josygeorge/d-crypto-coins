@@ -19,11 +19,16 @@ export const cryptoCoinsApi = createApi({
     endpoints: (builder) => ({
         getCryptoCoins: builder.query({
             query: (count) => createRequest(`/coins?limit=${count}`),
+        }),
+        getCryptoCoinDetails: builder.query({
+            query: (coinId) => createRequest(`/coin/${coinId}`),
         })
     })
 });
 
 // custom hook to call by redux tookit automatically in required pages / components 
 export const {
-    useGetCryptoCoinsQuery, // Add ( prefix 'use' and suffix 'Query') to the endpoints object query above
+    // Add ( prefix 'use' and suffix 'Query') to the endpoints object query above
+    useGetCryptoCoinsQuery,
+    useGetCryptoCoinDetailsQuery,
 } = cryptoCoinsApi;

@@ -43,7 +43,7 @@ const CryptoCoins = (props) => {
                         lg={6} sm={12} xs={24}
                         className='crypto-coins-card'
                         key={cryptoCoin.id}>
-                        <Link to={`/cryptocoins/${cryptoCoin.id}`}>
+                        <Link to={`/cryptocoin/${cryptoCoin.id}`}>
                             <Card
                                 title={`${cryptoCoin.rank}. ${cryptoCoin.name}`}
                                 extra={<img alt='crypto_coins_image' className='crypto-coins-image' src={cryptoCoin.iconUrl} />}
