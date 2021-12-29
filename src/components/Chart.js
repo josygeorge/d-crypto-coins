@@ -58,13 +58,13 @@ const LineChart = ({ cryptoCoinHistory, currentPrice, cryptoCoinName }) => {
     // options object
     const cryptoCoinsOptions = {
         scales: {
-            yAxes: [
-                {
-                    ticks: {
-                        beginAtZero: true
-                    }
+            yAxes:
+            {
+                ticks: {
+                    beginAtZero: true
                 }
-            ]
+            }
+
         }
     }
 
