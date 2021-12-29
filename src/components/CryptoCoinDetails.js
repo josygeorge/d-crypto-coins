@@ -28,9 +28,18 @@ const CryptoCoinDetails = () => {
     const { data: cryptoCoinDetails, isFetching } = useGetCryptoCoinDetailsQuery(coinId);
     const { data: cryptoCoinHistory } = useGetCryptoCoinHistoryQuery({ coinId, timePeriod });
 
-    console.log(cryptoCoinDetails?.data?.coin);
+    //console.log(cryptoCoinDetails?.data?.coin);
 
     const coinDetailsArr = cryptoCoinDetails?.data.coin;
+
+    // creating an arr for links, to push a custom unique identifier/slug
+    const linksArrWithCustomSlug = [];
+
+    for (let i = 0; i < coinDetailsArr?.links?.length; i++) {
+        linksArrWithCustomSlug[i] = { ...coinDetailsArr?.links[i], customSlug: `${coinDetailsArr?.links[i]?.name}-${i + 1}-link` }
+    }
+
+
     // Creating a custom time arr for user selection 
     const customTimeArr = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
@@ -71,14 +80,14 @@ const CryptoCoinDetails = () => {
             </Select>
 
             {/* Chart */}
-            <Chart
+            {/* <Chart
                 cryptoCoinHistory={cryptoCoinHistory}
                 currentPrice={millify(coinDetailsArr.price)}
-                cryptoCoinName={coinDetailsArr.name} />
+                cryptoCoinName={coinDetailsArr.name} /> */}
 
             {/* Coin Statistics Container */}
             <Col className="coin-stats-container">
-                <Row gutter={96}>
+                <Row gutter={32}>
                     {/* Coin specific / primary Stats */}
                     <Col lg={12} sm={24} xs={24} className="coin-primary-stats">
                         <Col className="coin-value-stats-heading">
@@ -127,8 +136,8 @@ const CryptoCoinDetails = () => {
 
                     <Col lg={12} sm={12} xs={24} className="coin-links">
                         <Title level={3} className="coin-details-heading">{coinDetailsArr?.name} Links</Title>
-                        {coinDetailsArr?.links.map((link) => (
-                            <Row className="coin-link" key={link.name}>
+                        {linksArrWithCustomSlug.map((link) => (
+                            <Row className="coin-link" key={link.customSlug}>
                                 <Title level={5} className="link-name">{link.type}</Title>
                                 <a href={link.url} target="_blank" rel="noreferrer">{link.name}</a>
                             </Row>

@@ -6,6 +6,48 @@ const { Title } = Typography;
 
 const LineChart = ({ cryptoCoinHistory, currentPrice, cryptoCoinName }) => {
     console.log(cryptoCoinHistory);
+
+    const cryptoCoinPrice = [];
+    const cryptoCoinTimeStamp = [];
+    const historyDataArrObj = cryptoCoinHistory?.data?.history;
+    // Pushing price and timestamp from cryptoCoinHistory (history api) to the empty array
+    for (let i = 0; i < historyDataArrObj?.length; i++) {
+        cryptoCoinPrice.push(historyDataArrObj[i]?.price);
+    }
+    for (let i = 0; i < historyDataArrObj?.length; i++) {
+        // date readable format
+        let timeStampToDateFormat = new Date(historyDataArrObj[i]?.timestamp).toLocaleDateString();
+        cryptoCoinTimeStamp.push(timeStampToDateFormat);
+    }
+
+    //console.log(cryptoCoinTimeStamp);
+
+    // data object
+    const cryptoCoinsData = {
+        labels: cryptoCoinTimeStamp,
+        datasets: [
+            {
+                label: 'In USD',
+                data: cryptoCoinPrice,
+                fill: false,
+                backgroundColor: '#1f6bb6',
+                borderColor: '#000000'
+            }
+        ]
+    }
+    // options object
+    const cryptoCoinsOptions = {
+        scales: {
+            yAxes: [
+                {
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }
+            ]
+        }
+    }
+
     return (
         <>
             <Row className='chart-header'>
@@ -19,7 +61,7 @@ const LineChart = ({ cryptoCoinHistory, currentPrice, cryptoCoinName }) => {
                     </Title>
                 </Col>
             </Row>
-
+            <Line data={cryptoCoinsData} options={cryptoCoinsOptions} />
         </>
 
 
