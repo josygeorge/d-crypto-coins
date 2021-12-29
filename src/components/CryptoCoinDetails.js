@@ -80,10 +80,10 @@ const CryptoCoinDetails = () => {
             </Select>
 
             {/* Chart */}
-            {/* <Chart
+            <Chart
                 cryptoCoinHistory={cryptoCoinHistory}
                 currentPrice={millify(coinDetailsArr.price)}
-                cryptoCoinName={coinDetailsArr.name} /> */}
+                cryptoCoinName={coinDetailsArr.name} />
 
             {/* Coin Statistics Container */}
             <Col className="coin-stats-container">
