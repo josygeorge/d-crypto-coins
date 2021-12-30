@@ -40,8 +40,6 @@ const LineChart = ({ cryptoCoinHistory, currentPrice, cryptoCoinName }) => {
         cryptoCoinTimeStamp.push(timeStampToDateFormat);
     }
 
-    //console.log(cryptoCoinTimeStamp);
-
     // data object
     const cryptoCoinsData = {
         labels: cryptoCoinTimeStamp,
@@ -71,20 +69,18 @@ const LineChart = ({ cryptoCoinHistory, currentPrice, cryptoCoinName }) => {
     return (
         <>
             <Row className='chart-header'>
-                <Typography.Title level={2} className='chart-title'>{cryptoCoinName} Chart Visualization</Typography.Title>
+                <Typography.Title level={2} className='chart-title'>{cryptoCoinName} - Chart Visualization</Typography.Title>
                 <Col className='price-container'>
                     <Typography.Title level={5} className='price-change'>
-                        {cryptoCoinHistory?.data?.change}
+                        ~ [{cryptoCoinHistory?.data?.change}%]
                     </Typography.Title>
                     <Typography.Title level={5} className='current-price'>
-                        Current {cryptoCoinName} Price: ${currentPrice}
+                        Current Price: ${currentPrice}
                     </Typography.Title>
                 </Col>
             </Row>
             <Line data={cryptoCoinsData} options={cryptoCoinsOptions} />
         </>
-
-
     )
 }
 

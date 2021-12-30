@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useGetCryptoCoinsQuery } from '../api/cryptoCoinsApi';
 import { SearchOutlined } from '@ant-design/icons';
+import Loader from './Loader';
 
 
 const CryptoCoins = (props) => {
@@ -24,7 +25,7 @@ const CryptoCoins = (props) => {
         setCryptoCoins(filteredSearchCryptoCoin);
     }, [cryptoCoinsList, searchCryptoCoin]);
 
-    if (isFetching) return 'Loading...';
+    if (isFetching) return <Loader />;
 
     return (
         <>
@@ -33,7 +34,7 @@ const CryptoCoins = (props) => {
                     <Input
                         prefix={<SearchOutlined style={{ fontSize: '13px', color: 'rgb(168,168,168)' }} />}
                         allowClear
-                        placeholder='Search Crypto Coin by name'
+                        placeholder='Search Crypto Coin...'
                         onChange={(e) => setSearchCryptoCoin(e.target.value)} />
                 </div>
             }
