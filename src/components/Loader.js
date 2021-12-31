@@ -1,8 +1,7 @@
 import React from 'react';
-import { Spin, Skeleton } from 'antd';
+import { Skeleton } from 'antd';
 
 const Loader = () => {
-    const spinTip = 'Please wait while Loading...';
     return (
         <div className="loader">
             {/* <Spin size='large' tip={spinTip} /> */}
