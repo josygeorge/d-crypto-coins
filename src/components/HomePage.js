@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useGetCryptoCoinsQuery } from '../api/cryptoCoinsApi'; // custom hook by redux toolkit
 import CryptoCoins from './CryptoCoins';
+import Loader from './Loader';
 
 const { Title } = Typography;
 
@@ -14,7 +15,7 @@ const HomePage = () => {
     const worldWideStats = data?.data?.stats;
     console.log(worldWideStats);
 
-    if (isFetching) return 'Loading...';
+    if (isFetching) return <Loader />;
 
     return (
         <>

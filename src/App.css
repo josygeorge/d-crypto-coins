@@ -51,37 +51,6 @@ a:hover {
   flex-direction: column;
   min-height: 100vh !important;
 }
-@media screen and (max-width: 1300px) {
-  .main-content.body-section {
-    margin-left: -12px;
-  }
-}
-@media screen and (max-width: 1260px) {
-  .navbar-container {
-    position: fixed !important;
-  }
-}
-
-@media screen and (max-width: 1072px) {
-  .main-content.body-section {
-    margin-left: 15px;
-  }
-}
-@media screen and (max-width: 990px) {
-  .main-content.body-section {
-    margin-left: 32px;
-  }
-}
-@media screen and (max-width: 920px) {
-  .main-content.body-section {
-    margin-left: 45px;
-  }
-}
-@media screen and (max-width: 850px) {
-  .main-content.body-section {
-    margin-left: 65px;
-  }
-}
 
 .routes {
   padding: 20px;
@@ -120,46 +89,6 @@ a:hover {
   border: none !important;
 }
 
-@media screen and (max-width: 800px) {
-  .app-container {
-    flex-direction: column;
-    overflow: auto;
-  }
-
-  .navbar.menu {
-    flex: 1;
-  }
-
-  .main-content.body-section {
-    flex: 1;
-    margin-top: 90px;
-    margin-left: 0px;
-    margin-right: 10px;
-  }
-
-  .navbar-container {
-    height: 8vh;
-    position: fixed;
-    width: 100%;
-    z-index: 100;
-    background-color: var(--bgSecondary);
-  }
-
-  .menu-control-container {
-    display: block !important;
-  }
-
-  .ant-menu {
-    position: absolute;
-    right: 0px;
-  }
-  .home-title {
-    font-size: 1.4rem !important;
-  }
-  .show-more {
-    font-size: 1.3rem !important;
-  }
-}
 /* home page */
 .home-heading-container {
   display: flex;
@@ -176,9 +105,11 @@ a:hover {
 .crypto-coins-card-container {
   min-height: 65vh !important;
   margin-top: 50px;
+  justify-content: space-between;
+  align-items: center;
 }
 .crypto-coins-card {
-  min-width: 300px;
+  min-width: 230px;
 }
 .crypto-coins-card .crypto-coins-image {
   width: 35px;
@@ -324,6 +255,53 @@ a:hover {
   font-weight: 900 !important;
 }
 
+/* Exchanges */
+.coin-exchanges-panel-header {
+  background: #f7efcb;
+  color: rgb(47, 73, 143);
+  font: small-caps bold 1rem/1.75rem Verdana, Georgia, serif;
+}
+.coin-exchanges-panel-header .ant-col:first-child {
+  padding-left: 0.7rem;
+}
+
+.coin-exchanges-content-container
+  .ant-collapse
+  > .ant-collapse-item
+  > .ant-collapse-header {
+  display: block;
+  background: rgb(47, 73, 143);
+  color: #f5dd73;
+}
+.coin-exchanges-content-container .ant-col-8 strong {
+  color: #f5dd73;
+}
+.coin-exchange-image.ant-avatar {
+  margin: 0px 12px;
+  background: rgb(255, 255, 255);
+}
+.coin-exchanges-content-container .ant-collapse-content {
+  font-weight: 600;
+  color: rgb(105, 99, 4);
+}
+
+/* Loader */
+.loader {
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .loader {
+  display: block;
+  position: fixed;
+  z-index: 1031; /* High z-index so it is on top of the page */
+/* top: 50%; */
+/* right: 42%; or: left: 50%; */
+/* margin-top: -40px; half of the elements height */
+/* margin-right: -30px; half of the elements widht */
+/* } */
+
 .footer-section {
   background-color: #001529;
   color: #f9f9f9;
@@ -333,4 +311,80 @@ a:hover {
   align-items: center;
   width: 100%;
   margin-top: auto;
+}
+/* Responsive */
+@media screen and (max-width: 1300px) {
+  .main-content.body-section {
+    margin-left: -12px;
+  }
+}
+@media screen and (max-width: 1260px) {
+  .navbar-container {
+    position: fixed !important;
+  }
+}
+
+@media screen and (max-width: 1072px) {
+  .main-content.body-section {
+    margin-left: 15px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .main-content.body-section {
+    margin-left: 32px;
+  }
+}
+@media screen and (max-width: 920px) {
+  .main-content.body-section {
+    margin-left: 45px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .main-content.body-section {
+    margin-left: 65px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .app-container {
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  .navbar.menu {
+    flex: 1;
+  }
+
+  .main-content.body-section {
+    flex: 1;
+    margin-top: 90px;
+    margin-left: 0px;
+    margin-right: 10px;
+  }
+
+  .navbar-container {
+    height: 8vh;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background-color: var(--bgSecondary);
+  }
+
+  .menu-control-container {
+    display: block !important;
+  }
+
+  .ant-menu {
+    position: absolute;
+    right: 0px;
+  }
+  .home-title {
+    font-size: 1.4rem !important;
+  }
+  .show-more {
+    font-size: 1.3rem !important;
+  }
+  .coin-exchanges-panel-header {
+    font: small-caps bold 0.75rem/1.5rem Verdana, Georgia, serif;
+  }
 }
